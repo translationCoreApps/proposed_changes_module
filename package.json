@@ -1,5 +1,5 @@
 {
-  "name": "proposed_changes_module",
+  "name": "ProposedChanges",
   "version": "1.0.0",
   "description": "A sub-module for proposed changes",
   "main": "View.js",
