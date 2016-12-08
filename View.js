@@ -2,7 +2,7 @@
 const api = window.ModuleApi;
 const React = api.React;
 const RB = api.ReactBootstrap;
-const {Glyphicon, Button, Panel, FormControl, Well} = RB;
+const {Glyphicon, FormControl, Row, Col} = RB;
 
 const NAMESPACE = 'ProposedChanges';
 
@@ -11,7 +11,14 @@ class ProposedChanges extends React.Component {
     super();
     this.state = {
       newWord: "",
-      currentWord: ""
+      currentWord: "",
+
+      spelling: false,
+      wordChoice: false,
+      punctuation: false,
+      meaning: false,
+      grammar: false,
+      other: false,
     };
   }
 
@@ -51,6 +58,16 @@ class ProposedChanges extends React.Component {
     this.setState({currentWord: newWord});
   }
 
+  handleChange(field, changeEvent){
+    var nextState = {};
+    nextState[field] = changeEvent.target.checked;
+    this.setState(nextState);
+    /* saving in checkstore using getCurrentCheck() sent by tool as a prop
+    let currentCheck = this.props.getCurrentCheck();
+    currentCheck[field] = changeEvent.target.checked;
+    */
+  }
+
   render() {
     var words = this.props.selectedWord;
     var wordArray = [];
@@ -63,29 +80,67 @@ class ProposedChanges extends React.Component {
           wordArray.push(<span key={wordKey++}>{', '}</span>);
         }
       }
-    }
+    }/*
     var currentWordPhrase;
     if(this.state.currentWord == ""){
       currentWordPhrase = "Selected Word/Phrase";
     }else{
       currentWordPhrase = this.state.currentWord;
-    }
+    }*/
     return (
-      <div style={{width:"100%", padding: "10px", marginTop: "2.5px", marginBottom: "2.5px", display: "inline-block"}}>
-        <center>
-          <span style={{fontSize: "24px", color: "#000", fontFamily: "Helvetica", marginBottom: "5px"}}>
-            Propose Changes
-          </span>
-        </center>
-        <div style={{fontSize: "16px", color: "white", background:"#d9534f", padding: "5px", marginBottom: "10px"}}>{currentWordPhrase}
-          </div>
+      <div style={{color: "#FFFFFF", width:"100%", padding: "10px", marginTop: "2.5px", marginBottom: "2.5px", display: "inline-block", backgroundColor: "#333333"}}>
         <FormControl
             type="text"
-            placeholder="Proposed Word/Pharse"
+            placeholder="Type your proposed phrase"
             value={this.state.newWord}
-            style={{marginBottom: "0px", marginTop: "0px",fontSize: "16px" }}
+            style={{marginBottom: "0px", marginTop: "0px", fontSize: "16px", borderRadius: "0px" }}
             onChange={this.handleChange.bind(this)}
-        />
+        /><br />
+        <label style={{color: "#FFFFFF"}}>This change addresses:</label>
+        <Row>
+          <Col sm={12} lg={4} style={{color: "#FFFFFF"}}>
+            <label>
+                <input type="checkbox" value="Spelling"
+                      checked={this.state.spelling}
+                      onChange={this.handleChange.bind(this, 'spelling')}
+                /> Spelling
+            </label><br />
+            <label>
+                <input type="checkbox" value="WordChoice"
+                      checked={this.state.wordChoice}
+                      onChange={this.handleChange.bind(this, 'wordChoice')}
+                /> Word Choice
+            </label><br />
+          </Col>
+          <Col sm={12} lg={4} style={{color: "#FFFFFF"}}>
+          <label>
+              <input type="checkbox" value="Punctuation"
+                    checked={this.state.punctuation}
+                    onChange={this.handleChange.bind(this, 'punctuation')}
+              /> Punctuation
+          </label><br />
+          <label>
+              <input type="checkbox" value="Meaning"
+                    checked={this.state.meaning}
+                    onChange={this.handleChange.bind(this, 'meaning')}
+              /> Meaning
+          </label><br />
+          </Col>
+          <Col sm={12} lg={4} style={{color: "#FFFFFF"}}>
+          <label>
+              <input type="checkbox" value="Grammar"
+                    checked={this.state.grammar}
+                    onChange={this.handleChange.bind(this, 'grammar')}
+              /> Grammar
+          </label><br />
+          <label>
+              <input type="checkbox" value="Other"
+                    checked={this.state.other}
+                    onChange={this.handleChange.bind(this, 'other')}
+              /> Other
+          </label><br />
+          </Col>
+        </Row>
       </div>
     );
   }
