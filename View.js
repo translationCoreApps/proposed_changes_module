@@ -36,7 +36,7 @@ class ProposedChanges extends React.Component {
   }
 
   handleInputChange(e) {
-    let currentCheck = this.props.getCurrentCheck();
+    let currentCheck = this.props.currentCheck;
     this.value = e.target.value;
     this.setState({newWord: this.value});
     api.getDataFromCheckStore(NAMESPACE)['newWord'] = this.value;
@@ -44,7 +44,7 @@ class ProposedChanges extends React.Component {
   }
 
   updateCheckBoxesStatus(){
-    let currentCheck = this.props.getCurrentCheck();
+    let currentCheck = this.props.currentCheck;
     if (currentCheck) {
       var savedState = {};
       savedState['spelling'] = currentCheck.spelling;
@@ -67,8 +67,8 @@ class ProposedChanges extends React.Component {
     var nextState = {};
     nextState[field] = changeEvent.target.checked;
     this.setState(nextState);
-    // saving in checkstore using getCurrentCheck() sent by tool as a prop
-    let currentCheck = this.props.getCurrentCheck();
+    // saving in checkstore using currentCheck sent by tool as a prop
+    let currentCheck = this.props.currentCheck;
     currentCheck[field] = changeEvent.target.checked;
   }
 
