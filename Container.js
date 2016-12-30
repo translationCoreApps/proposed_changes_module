@@ -45,11 +45,6 @@ class ProposedChanges extends React.Component {
       savedState['grammar'] = currentCheck.grammar;
       savedState['other'] = currentCheck.other;
     }
-    this.getSavedProposedPhrase(currentCheck);
-  }
-
-  getSavedProposedPhrase(currentCheck){
-    let newWord = currentCheck.proposedChanges;
   }
 
   handleCheckBoxChange(field, changeEvent){
