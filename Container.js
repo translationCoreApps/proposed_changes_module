@@ -30,7 +30,7 @@ class ProposedChanges extends React.Component {
     let currentCheck = this.props.currentCheck;
     let value = e.target.value;
     this.setState({newWord: value});
-    api.getDataFromCheckStore(NAMESPACE)['newWord'] = value;
+    this.props.proposedChangesStore['newWord'] = value;
     currentCheck.proposedChanges = value;
   }
 
