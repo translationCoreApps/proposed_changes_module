@@ -2,7 +2,7 @@
   "name": "ProposedChanges",
   "version": "1.0.0",
   "description": "A sub-module for proposed changes",
-  "main": "View.js",
+  "main": "Container.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
