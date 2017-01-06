@@ -5,7 +5,7 @@ const fs = require(window.__base + 'node_modules/fs-extra');
 const path = require('path');
 var missingChunks = 0;
 
-var parser = require('./usfm-parse.js');
+var parser = require('./js/usfm-parse.js');
 
 function fetchData(params, progress, callback) {
   //Get target Language
