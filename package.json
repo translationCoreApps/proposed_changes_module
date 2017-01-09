@@ -1,6 +1,6 @@
 {
   "name": "ProposedChanges",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A sub-module for proposed changes",
   "main": "Container.js",
   "scripts": {
