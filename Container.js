@@ -29,9 +29,14 @@ class ProposedChanges extends React.Component {
   handleInputChange(e) {
     let value = e.target.value;
     this.setState({newWord: value});
+  }
+
+  handleSaveInput(){
+    let currentCheck = this.props.currentCheck;
+    let value = this.state.newWord;
     this.props.proposedChangesStore['newWord'] = value;
-    this.props.currentCheck.proposedChanges = value;
-    this.props.updateCurrentCheck(this.props.currentCheck);
+    currentCheck.proposedChanges = value;
+    this.props.updateCurrentCheck(currentCheck);
   }
 
   updateCheckBoxesStatus(){
@@ -60,6 +65,7 @@ class ProposedChanges extends React.Component {
       <View
         newWord={this.state.newWord}
         handleInputChange={this.handleInputChange.bind(this)}
+        handleSaveInput={this.handleSaveInput.bind(this)}
         handleCheckBoxChange={this.handleCheckBoxChange.bind(this)}
         spelling={this.state.spelling}
         wordChoice={this.state.wordChoice}
