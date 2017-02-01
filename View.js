@@ -20,6 +20,7 @@ class View extends React.Component {
             value={this.props.newWord || ''}
             style={style.textBox}
             onChange={this.props.handleInputChange.bind(this)}
+            onBlur={this.props.handleSaveInput.bind(this)}
         /><br />
         <label style={style.label2}>
           This change addresses:
