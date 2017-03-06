@@ -10,6 +10,7 @@ const NAMESPACE = 'ProposedChanges';
 class View extends React.Component {
 
   render() {
+    let { spelling, meaning, punctuation, wordChoice, grammar, other } = this.props.currentCheck;
     return (
       <div style={style.content}>
         <label style={style.label}>
@@ -28,48 +29,48 @@ class View extends React.Component {
         <Row>
           <Col sm={12} md={6} lg={4} style={{color: "#FFFFFF"}}>
             <label style={{marginBottom: "10px"}}>
-                <input type="checkbox" value="Spelling"
-                      checked={this.props.spelling}
+                <input type="checkbox"
+                      checked={spelling}
                       onChange={this.props.handleCheckBoxChange.bind(this, 'spelling')}
                 /> Spelling
             </label>
           </Col>
           <Col sm={12} md={6} lg={4} style={{color: "#FFFFFF"}}>
             <label style={{marginBottom: "10px"}}>
-              <input type="checkbox" value="Meaning"
-                    checked={this.props.meaning}
+              <input type="checkbox"
+                    checked={meaning}
                     onChange={this.props.handleCheckBoxChange.bind(this, 'meaning')}
               /> Meaning
             </label>
           </Col>
           <Col sm={12} md={6} lg={4} style={{color: "#FFFFFF"}}>
             <label style={{marginBottom: "10px"}}>
-              <input type="checkbox" value="Punctuation"
-                    checked={this.props.punctuation}
+              <input type="checkbox"
+                    checked={punctuation}
                     onChange={this.props.handleCheckBoxChange.bind(this, 'punctuation')}
               /> Punctuation
               </label>
           </Col>
           <Col sm={12} md={6} lg={4} style={{color: "#FFFFFF"}}>
             <label style={{marginBottom: "10px"}}>
-              <input type="checkbox" value="WordChoice"
-                    checked={this.props.wordChoice}
+              <input type="checkbox"
+                    checked={wordChoice}
                     onChange={this.props.handleCheckBoxChange.bind(this, 'wordChoice')}
               /> Word Choice
             </label>
           </Col>
           <Col sm={12} md={6} lg={4} style={{color: "#FFFFFF"}}>
             <label style={{marginBottom: "10px"}}>
-              <input type="checkbox" value="Grammar"
-                    checked={this.props.grammar}
+              <input type="checkbox"
+                    checked={grammar}
                     onChange={this.props.handleCheckBoxChange.bind(this, 'grammar')}
               /> Grammar
             </label>
           </Col>
           <Col sm={12} md={6} lg={4} style={{color: "#FFFFFF"}}>
             <label style={{marginBottom: "10px"}}>
-              <input type="checkbox" value="Other"
-                    checked={this.props.other}
+              <input type="checkbox"
+                    checked={other}
                     onChange={this.props.handleCheckBoxChange.bind(this, 'other')}
               /> Other
             </label>
