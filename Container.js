@@ -63,16 +63,11 @@ class ProposedChanges extends React.Component {
   render() {
     return (
       <View
+        currentCheck={this.props.currentCheck}
         newWord={this.state.newWord}
         handleInputChange={this.handleInputChange.bind(this)}
         handleSaveInput={this.handleSaveInput.bind(this)}
         handleCheckBoxChange={this.handleCheckBoxChange.bind(this)}
-        spelling={this.state.spelling}
-        wordChoice={this.state.wordChoice}
-        punctuation={this.state.punctuation}
-        meaning={this.state.meaning}
-        grammar={this.state.grammar}
-        other={this.state.other}
       />
     );
   }
