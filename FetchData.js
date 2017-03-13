@@ -22,7 +22,6 @@ function fetchData(params, progress, callback) {
       sendToReader(params.targetLanguagePath,
         function () {
           progress(100);
-          api.putDataInCheckStore("ProposedChanges", "newWord", '');
           callback();
         },
         progress
@@ -31,7 +30,6 @@ function fetchData(params, progress, callback) {
   }
   else {
     progress(100);
-    api.putDataInCheckStore("ProposedChanges", "newWord", '');
     callback();
   }
 

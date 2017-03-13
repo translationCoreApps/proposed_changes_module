@@ -34,7 +34,6 @@ class ProposedChanges extends React.Component {
   handleSaveInput(){
     let currentCheck = this.props.currentCheck;
     let value = this.state.newWord;
-    this.props.proposedChangesStore['newWord'] = value;
     currentCheck.proposedChanges = value;
     this.props.updateCurrentCheck(currentCheck);
   }
